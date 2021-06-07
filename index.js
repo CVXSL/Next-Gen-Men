@@ -25,9 +25,6 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('Help')
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n🛠️ Moderation\n\`\`=help mod\`\`\n\n⚙️ Utility\n\`\`=help mod\`\`\n\n🎲 Fun\n\`\`=help fun\`\``)
-            .addField(':tools: Moderation', '``=help mod``', false)
-            .addField(':gear: Utility', '``=help util``', false)
-            .addField(':game_die: Fun', '``=help fun``', false)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
