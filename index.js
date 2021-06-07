@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`I have restarted!`)
     
-    bot.user.setActivity("Update 1.0.0", {
+    bot.user.setActivity("Update 1.1.0", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
@@ -18,7 +18,19 @@ bot.on('ready', () => {
 }
 )
 
-
+//Filter
+bot.on("message", async (message) => {
+    let blacklisted = ['gay'];
+    let foundInText = false;
+    for (var i in blacklisted) {
+      if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
+    }
+    if (foundInText) {
+            
+        message.channel.send('yay pride 🏳️‍🌈')
+        
+    }
+});
 
 // THIS IS THE bot.login
 
