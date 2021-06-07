@@ -10,13 +10,68 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`I have restarted!`)
     
-    bot.user.setActivity("Update 1.2.1", {
+    bot.user.setActivity("Update 1.3.0", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
 
 }
 )
+
+//help command
+bot.on('message', async message => {
+    if (message.content === "=help") {
+        const exampleEmbed = new Discord.MessageEmbed()
+            .setColor('')
+            .setTitle('Help')
+            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n🛠️ Moderation\n\`\`=help mod\`\`\n\n⚙️ Utility\n\`\`=help mod\`\`\n\n🎲 Fun\n\`\`=help fun\`\``)
+            .addField(':tools: Moderation', '``=help mod``', false)
+            .addField(':gear: Utility', '``=help util``', false)
+            .addField(':game_die: Fun', '``=help fun``', false)
+            .setTimestamp()
+
+        message.channel.send(exampleEmbed);
+    }
+})
+
+//help mod command
+bot.on('message', async message => {
+    if (message.content === "=help mod") {
+        const exampleEmbed = new Discord.MessageEmbed()
+            .setColor('')
+            .setTitle('Help Moderation')
+            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\nComing Soon!`)
+            .setTimestamp()
+
+        message.channel.send(exampleEmbed);
+    }
+})
+
+//help util command
+bot.on('message', async message => {
+    if (message.content === "=help util") {
+        const exampleEmbed = new Discord.MessageEmbed()
+            .setColor('')
+            .setTitle('Help Utility')
+            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\nComing Soon!`)
+            .setTimestamp()
+
+        message.channel.send(exampleEmbed);
+    }
+})
+
+//help fun command
+bot.on('message', async message => {
+    if (message.content === "=help fun") {
+        const exampleEmbed = new Discord.MessageEmbed()
+            .setColor('')
+            .setTitle('Help Fun')
+            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\nComing Soon!`)
+            .setTimestamp()
+
+        message.channel.send(exampleEmbed);
+    }
+})
 
 // "gay" response
 bot.on("message", async (message) => {
