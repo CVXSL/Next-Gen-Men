@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`I have restarted!`)
     
-    bot.user.setActivity("Update 1.3.2", {
+    bot.user.setActivity("Update 1.3.3", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
@@ -36,7 +36,7 @@ bot.on('message', async message => {
     if (message.content === "=help mod") {
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('')
-            .setTitle('Help Moderation')
+            .setTitle('🛠️ Help Moderation 🛠️')
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\nComing Soon!`)
             .setTimestamp()
 
@@ -49,7 +49,7 @@ bot.on('message', async message => {
     if (message.content === "=help util") {
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('')
-            .setTitle('Help Utility')
+            .setTitle('⚙️ Help Utility ⚙️')
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\nComing Soon!`)
             .setTimestamp()
 
@@ -62,7 +62,7 @@ bot.on('message', async message => {
     if (message.content === "=help fun") {
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('')
-            .setTitle('Help Fun')
+            .setTitle('🎲 Help Fun 🎲')
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\nComing Soon!`)
             .setTimestamp()
 
