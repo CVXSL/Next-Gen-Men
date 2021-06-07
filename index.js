@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`I have restarted!`)
     
-    bot.user.setActivity("Update 1.2.0", {
+    bot.user.setActivity("Update 1.2.1", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
@@ -38,6 +38,7 @@ bot.on('message', async message => {
     const command = args.shift().toLowerCase();
     const tdc = bot.guilds.cache.get('840284368425582663');
     if (command === "love") {
+        message.delete().catch(O_o => { });
         if (message.author.bot) return;
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(`Only staff members can use this command.`);
         if (message.content.indexOf(prefix) !== 0) return;
