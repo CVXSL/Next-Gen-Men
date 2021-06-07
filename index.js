@@ -24,7 +24,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('')
             .setTitle('Help')
-            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n🛠️ Moderation\n\`\`=help mod\`\`\n\n⚙️ Utility\n\`\`=help mod\`\`\n\n🎲 Fun\n\`\`=help fun\`\``)
+            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n**🛠️ Moderation**\n\`\`=help mod\`\`\n\n**⚙️ Utility**\n\`\`=help util\`\`\n\n**🎲 Fun**\n\`\`=help fun\`\``)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
