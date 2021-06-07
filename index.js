@@ -1,23 +1,24 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
 
-const prefix = "[Your Prefix]"
+const prefix = "="
 
 // THIS IS THE STATUS
 
 bot.on('ready', () => {
     console.log(`Logged in as ${bot.user.tag} :)`);
-    bot.user.setActivity("[your custom status]", { // THIS IS THE PLACE YOU PUT YOUR CUSTOM STATUS
-        type: "STREAMING", // THIS IS THE STATUS TYPE
-        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" // THIS IS THE LINK IT WILL BRING YOU TO WHEN YOU CLICK "Watch Stream"!
+    
+    bot.channels.cache.get('851575942795100208').send(`I have restarted!`)
+    
+    bot.user.setActivity("Update 1.0.0", {
+        type: "STREAMING",
+        url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
 
 }
 )
 
-// THIS IS THE ([prefix]help) COMMAND
 
-// [SCRIPT GOES HERE]
 
 // THIS IS THE bot.login
 
