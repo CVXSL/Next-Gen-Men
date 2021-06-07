@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`I have restarted!`)
     
-    bot.user.setActivity("Update 1.1.0", {
+    bot.user.setActivity("Update 1.1.1", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
@@ -18,12 +18,12 @@ bot.on('ready', () => {
 }
 )
 
-//Filter
+// "gay" response
 bot.on("message", async (message) => {
-    let blacklisted = ['gay'];
+    let gay = ['gay'];
     let foundInText = false;
-    for (var i in blacklisted) {
-      if (message.content.toLowerCase().includes(blacklisted[i].toLowerCase())) foundInText = true;
+    for (var i in gay) {
+      if (message.content.toLowerCase().includes(gay[i].toLowerCase())) foundInText = true;
     }
     if (foundInText) {
             
