@@ -8,7 +8,7 @@ const prefix = "="
 bot.on('ready', () => {
     console.log(`Logged in as ${bot.user.tag} :)`);
     
-    bot.channels.cache.get('851575942795100208').send(`I have restarted!`)
+    bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
     
     bot.user.setActivity("Update 1.3.3", {
         type: "STREAMING",
