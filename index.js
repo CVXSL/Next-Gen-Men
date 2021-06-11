@@ -27,7 +27,7 @@ bot.on('message', async message => {
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n**🛠️ Moderation**\n\`\`=help mod\`\`\n\n**⚙️ Utility**\n\`\`=help util\`\`\n\n**🎲 Fun**\n\`\`=help fun\`\``)
             .setTimestamp()
 
-        message.channel.send(exampleEmbed);
+        message.channel.send(exampleEmbed); 
     }
 })
 
