@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
     
-    bot.user.setActivity("Update 1.4.2", {
+    bot.user.setActivity("Update 1.5.0", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
@@ -63,7 +63,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('')
             .setTitle('🎲 Help Fun 🎲')
-            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n\`\`=love <@user>\`\` | To send an anonymous message to the pinged user.\n\`\`"gay"\`\` | Say the word "gay" in any of your sentances to see!`)
+            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n\`\`=love <@user>\`\` | To send an anonymous message to the pinged user.\n\`\`"gay"\`\` | Say the word "gay" in any of your sentances to see!\n\`\`=8ball <question>\`\` | Ask the 8ball a question!\n\`\`=dice\`\` | Check all of the dice types!\n\`\`=d<number>\`\` | To roll a dice, but make sure to use the ``=dice`` command to check the list of dice types!\n\`\`=coinflip\`\` | To flip a coin for heads or tails!`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -239,6 +239,147 @@ bot.on('message', async message => {
         }
     }
 })
+
+// =8ball command
+bot.on('message', async message => {
+      if (message.content === "=8ball") return;
+      if (message.channel.type == "dm") return;
+      if (message.content.startsWith("=8ball")) {
+        let outcomes = ['Signs point to yes.', 'Without a doubt.', 'My sources say no.', 'Yes, definitely.', 'Outlook not so good.', 'All signs point to yes.', 'Sure'];
+        let outcomesIndex = Math.round(Math.random() * outcomes.length);
+        const exampleEmbed = new Discord.MessageEmbed()
+	        .setColor('')
+            .setAuthor('The 8Ball Responds')
+            .setDescription(`${(outcomes[outcomesIndex])}`)
+
+        message.channel.send(exampleEmbed);
+      	}
+    });
+
+//invalid =8ball command
+bot.on('message', async message => {
+    if (message.content === "=8ball") {
+	if (message.channel.type == "dm") return;
+        const exampleEmbed = new Discord.MessageEmbed()
+	    .setColor('')
+            .setTitle('The 8Ball Responds')
+            .setDescription('Please use the proper syntax: ``--8ball <Your Question>``')
+
+        message.channel.send(exampleEmbed);
+    }
+})
+
+//dice command
+bot.on('message', async message => {
+    if (message.content === "=dice") {
+        if (message.channel.type == "dm") return;
+        const exampleEmbed = new Discord.MessageEmbed()
+            .setColor()
+            .setTitle('Dice Types')
+            .setDescription('**Here is a list of all dice types:**\nD4\nD6\nD8\nD10\nD12\nD20')
+            .setTimestamp()
+
+        message.channel.send(exampleEmbed);
+    }
+})
+
+//d4 command
+bot.on('message', async message => {
+      if (message.content.startsWith("=d4")) {
+        let outcomes = ['1', '2', '3', '4'];
+        let outcomesIndex = Math.round(Math.random() * outcomes.length);
+        const exampleEmbed = new Discord.MessageEmbed()
+	    .setColor()
+            .setAuthor('D4', 'https://www.google.com/logos/fnbx/polyhedral_dice/d4_hires.png')
+            .setDescription(`<@{message.author.id}> rolled a D4 and a ${(outcomes[outcomesIndex])} came out!`)
+
+        message.channel.send(exampleEmbed);
+      	}
+    });
+
+//d6 command
+bot.on('message', async message => {
+      if (message.content.startsWith("=d6")) {
+        let outcomes = ['1', '2', '3', '4', '5', '6'];
+        let outcomesIndex = Math.round(Math.random() * outcomes.length);
+        const exampleEmbed = new Discord.MessageEmbed()
+	    .setColor()
+            .setAuthor('D6', 'https://www.google.com/logos/fnbx/polyhedral_dice/d6_hires.png')
+            .setDescription(`<@{message.author.id}> rolled a D6 and a ${(outcomes[outcomesIndex])} came out!`)
+
+        message.channel.send(exampleEmbed);
+      	}
+    });
+
+//d8 command
+bot.on('message', async message => {
+      if (message.content.startsWith("=d8")) {
+        let outcomes = ['1', '2', '3', '4', '5', '6', '7', '8'];
+        let outcomesIndex = Math.round(Math.random() * outcomes.length);
+        const exampleEmbed = new Discord.MessageEmbed()
+	    .setColor()
+            .setAuthor('D8', 'https://www.google.com/logos/fnbx/polyhedral_dice/d8_hires.png')
+            .setDescription(`<@{message.author.id}> rolled a D8 and a ${(outcomes[outcomesIndex])} came out!`)
+
+        message.channel.send(exampleEmbed);
+      	}
+    });
+
+//d10 command
+bot.on('message', async message => {
+      if (message.content.startsWith("=d10")) {
+        let outcomes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'];
+        let outcomesIndex = Math.round(Math.random() * outcomes.length);
+        const exampleEmbed = new Discord.MessageEmbed()
+	    .setColor()
+            .setAuthor('D10', 'https://www.google.com/logos/fnbx/polyhedral_dice/d10_hires.png')
+            .setDescription(`<@{message.author.id}> rolled a D10 and a ${(outcomes[outcomesIndex])} came out!`)
+
+        message.channel.send(exampleEmbed);
+      	}
+    });
+
+//d12 command
+bot.on('message', async message => {
+      if (message.content.startsWith("=d12")) {
+        let outcomes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12'];
+        let outcomesIndex = Math.round(Math.random() * outcomes.length);
+        const exampleEmbed = new Discord.MessageEmbed()
+	    .setColor()
+            .setAuthor('D12', 'https://www.google.com/logos/fnbx/polyhedral_dice/d12_hires.png')
+            .setDescription(`<@{message.author.id}> rolled a D12 and a ${(outcomes[outcomesIndex])} came out!`)
+
+        message.channel.send(exampleEmbed);
+      	}
+    });
+
+//d20 command
+bot.on('message', async message => {
+      if (message.content.startsWith("=d20")) {
+        let outcomes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
+        let outcomesIndex = Math.round(Math.random() * outcomes.length);
+        const exampleEmbed = new Discord.MessageEmbed()
+	    .setColor()
+            .setAuthor('D20', 'https://www.google.com/logos/fnbx/polyhedral_dice/d20_hires.png')
+            .setDescription(`<@{message.author.id}> rolled a D20 and a ${(outcomes[outcomesIndex])} came out!`)
+
+        message.channel.send(exampleEmbed);
+      	}
+    });
+
+//flip command
+bot.on('message', async message => {
+      if (message.content.startsWith("=flip")) {
+        let outcomes = ['HEADS', 'TAILS'];
+        let outcomesIndex = Math.round(Math.random() * outcomes.length);
+        const exampleEmbed = new Discord.MessageEmbed()
+	    .setColor()
+            .setAuthor('Coin Flip', 'https://www.google.com/logos/fnbx/polyhedral_dice/d20_hires.png')
+            .setDescription(`<@{message.author.id}> rolled a D20 and a ${(outcomes[outcomesIndex])} came out!`)
+
+        message.channel.send(exampleEmbed);
+      	}
+    });
 
 // THIS IS THE bot.login
 
