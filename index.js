@@ -292,6 +292,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D4', 'https://www.google.com/logos/fnbx/polyhedral_dice/d4_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D4 and a **${(outcomes[outcomesIndex])}** came out!`)
+	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
 
         message.channel.send(exampleEmbed);
       	}
@@ -306,6 +307,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D6', 'https://www.google.com/logos/fnbx/polyhedral_dice/d6_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D6 and a **${(outcomes[outcomesIndex])}** came out!`)
+	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
 
         message.channel.send(exampleEmbed);
       	}
@@ -320,6 +322,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D8', 'https://www.google.com/logos/fnbx/polyhedral_dice/d8_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D8 and a **${(outcomes[outcomesIndex])}** came out!`)
+	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
 
         message.channel.send(exampleEmbed);
       	}
@@ -334,6 +337,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D10', 'https://www.google.com/logos/fnbx/polyhedral_dice/d10_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D10 and a **${(outcomes[outcomesIndex])}** came out!`)
+	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
 
         message.channel.send(exampleEmbed);
       	}
@@ -348,6 +352,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D12', 'https://www.google.com/logos/fnbx/polyhedral_dice/d12_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D12 and a **${(outcomes[outcomesIndex])}** came out!`)
+	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
 
         message.channel.send(exampleEmbed);
       	}
@@ -362,6 +367,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D20', 'https://www.google.com/logos/fnbx/polyhedral_dice/d20_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D20 and a **${(outcomes[outcomesIndex])}** came out!`)
+	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
 
         message.channel.send(exampleEmbed);
       	}
@@ -376,6 +382,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('Coin Flip', '')
             .setDescription(`<@${message.author.id}> rolled heads or tails and **${(outcomes[outcomesIndex])}** came out!`)
+	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
 
         message.channel.send(exampleEmbed);
       	}
