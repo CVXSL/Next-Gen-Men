@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
     
-    bot.user.setActivity("Update 1.5.5", {
+    bot.user.setActivity("Update 1.5.6", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
@@ -79,7 +79,7 @@ bot.on('message', async message => {
 	const exampleEmbed = new Discord.MessageEmbed()
 		.setColor('')
 		.setTitle('PONG!')
-		.setDescription(`<@${message.author.id} has pinged the server!\n**⏳ Your ping is:** ${Math.round(bot.ws.ping)}ms`)
+		.setDescription(`<@${message.author.id}> has pinged the server!\n**⏳ Your ping is:** ${Math.round(bot.ws.ping)}ms`)
 		.setTimestamp()
 			
 		message.channel.send(exampleEmbed);
