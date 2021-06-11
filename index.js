@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
     
-    bot.user.setActivity("Update 1.5.3", {
+    bot.user.setActivity("Update 1.5.4", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
@@ -74,16 +74,18 @@ bot.on('message', async message => {
 
 
 // ping command
-bot.on('message', message => {
-
-    if (message.content === `${prefix}` + `ping`) {
-
-        message.channel.send('Pinging...').then(message => {
-
-            message.edit('Pong!\nPonged back the ping in milliseconds!');
-        })
-    }
-});
+bot.on('message', async message => {
+	if (message.content === "=ping" ) {
+	const exampleEmbed = new Discord.MessageEmbed()
+		.setColor('')
+		.setTitle('PONG!')
+		.addField("⏳ Your ping is:", `${Math.round(bot.ws.ping)}ms`, false)
+		.setTimestamp()
+			
+		message.channel.send(exampleEmbed);
+	}	
+	
+})
 
 //seek help command
 bot.on('message', async message => {
