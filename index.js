@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
     
-    bot.user.setActivity("Update 1.5.2", {
+    bot.user.setActivity("Update 1.5.3", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
