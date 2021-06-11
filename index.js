@@ -10,7 +10,7 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
     
-    bot.user.setActivity("Update 1.5.0", {
+    bot.user.setActivity("Update 1.5.1", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
@@ -291,7 +291,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor()
             .setAuthor('D4', 'https://www.google.com/logos/fnbx/polyhedral_dice/d4_hires.png')
-            .setDescription(`<@{message.author.id}> rolled a D4 and a ${(outcomes[outcomesIndex])} came out!`)
+            .setDescription(`<@${message.author.id}> rolled a D4 and a ${(outcomes[outcomesIndex])} came out!`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -305,7 +305,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor()
             .setAuthor('D6', 'https://www.google.com/logos/fnbx/polyhedral_dice/d6_hires.png')
-            .setDescription(`<@{message.author.id}> rolled a D6 and a ${(outcomes[outcomesIndex])} came out!`)
+            .setDescription(`<@${message.author.id}> rolled a D6 and a ${(outcomes[outcomesIndex])} came out!`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -319,7 +319,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor()
             .setAuthor('D8', 'https://www.google.com/logos/fnbx/polyhedral_dice/d8_hires.png')
-            .setDescription(`<@{message.author.id}> rolled a D8 and a ${(outcomes[outcomesIndex])} came out!`)
+            .setDescription(`<@${message.author.id}> rolled a D8 and a ${(outcomes[outcomesIndex])} came out!`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -333,7 +333,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor()
             .setAuthor('D10', 'https://www.google.com/logos/fnbx/polyhedral_dice/d10_hires.png')
-            .setDescription(`<@{message.author.id}> rolled a D10 and a ${(outcomes[outcomesIndex])} came out!`)
+            .setDescription(`<@${message.author.id}> rolled a D10 and a ${(outcomes[outcomesIndex])} came out!`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -347,7 +347,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor()
             .setAuthor('D12', 'https://www.google.com/logos/fnbx/polyhedral_dice/d12_hires.png')
-            .setDescription(`<@{message.author.id}> rolled a D12 and a ${(outcomes[outcomesIndex])} came out!`)
+            .setDescription(`<@${message.author.id}> rolled a D12 and a ${(outcomes[outcomesIndex])} came out!`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -361,7 +361,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor()
             .setAuthor('D20', 'https://www.google.com/logos/fnbx/polyhedral_dice/d20_hires.png')
-            .setDescription(`<@{message.author.id}> rolled a D20 and a ${(outcomes[outcomesIndex])} came out!`)
+            .setDescription(`<@${message.author.id}> rolled a D20 and a ${(outcomes[outcomesIndex])} came out!`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -374,8 +374,8 @@ bot.on('message', async message => {
         let outcomesIndex = Math.round(Math.random() * outcomes.length);
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor()
-            .setAuthor('Coin Flip', 'https://www.google.com/logos/fnbx/polyhedral_dice/d20_hires.png')
-            .setDescription(`<@{message.author.id}> rolled a D20 and a ${(outcomes[outcomesIndex])} came out!`)
+            .setAuthor('Coin Flip', '')
+            .setDescription(`<@${message.author.id}> rolled heads or tails and ${(outcomes[outcomesIndex])} came out!`)
 
         message.channel.send(exampleEmbed);
       	}
