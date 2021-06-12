@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 1.7.5", {
+    bot.user.setActivity("Update 1.7.6", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -413,7 +413,7 @@ bot.on('message', async message => {
         let outcomesIndex = Math.round(Math.random() * outcomes.length);
         const exampleEmbed = new Discord.MessageEmbed()
 	        .setColor('')
-            .setAuthor(`The 8Ball Responds to <@!${message.author.id}>!`)
+            .setAuthor(`The 8Ball Responds to <@${message.author.id}>!`)
             .setDescription(`${(outcomes[outcomesIndex])}`)
 
         message.channel.send(exampleEmbed);
@@ -426,8 +426,8 @@ bot.on('message', async message => {
 	if (message.channel.type == "dm") return;
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('')
-            .setTitle(`The 8Ball Responds to <@!${message.author.id}>!`)
-            .setDescription('Please use the proper syntax: ``--8ball <Your Question>``')
+            .setTitle(`The 8Ball Responds to <@${message.author.id}>!`)
+            .setDescription('Please use the proper syntax: ``=8ball <Your Question>``')
 
         message.channel.send(exampleEmbed);
     }
