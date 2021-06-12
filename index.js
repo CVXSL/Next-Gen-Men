@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 1.7.9", {
+    bot.user.setActivity("Update 1.7.10", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -421,7 +421,7 @@ bot.on('message', async message => {
     });
 
 //invalid =8ball command
-bot.on('message', async message => {
+bot.on('message', message => {
     if (message.content === "=8ball") {
 	if (message.channel.type == "dm") return;
         const exampleEmbed = new Discord.MessageEmbed()
