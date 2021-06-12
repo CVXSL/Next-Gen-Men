@@ -413,7 +413,7 @@ bot.on('message', async message => {
         let outcomesIndex = Math.round(Math.random() * outcomes.length);
         const exampleEmbed = new Discord.MessageEmbed()
 	        .setColor('')
-            .setAuthor(`The 8Ball Responds to <@${message.author.id}>!`)
+            .setAuthor(`The 8Ball Responds to <@!${message.author.id}>!`)
             .setDescription(`${(outcomes[outcomesIndex])}`)
 
         message.channel.send(exampleEmbed);
@@ -426,7 +426,7 @@ bot.on('message', async message => {
 	if (message.channel.type == "dm") return;
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('')
-            .setTitle(`The 8Ball Responds to <@${message.author.id}>!`)
+            .setTitle(`The 8Ball Responds to <@!${message.author.id}>!`)
             .setDescription('Please use the proper syntax: ``=8ball <Your Question>``')
 
         message.channel.send(exampleEmbed);
