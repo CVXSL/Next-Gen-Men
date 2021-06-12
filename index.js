@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 1.7.11", {
+    bot.user.setActivity("Update 1.7.12", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -427,7 +427,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor('')
             .setTitle(`The 8Ball Responds!`)
-            .setDescription(`**Please use the proper syntax: ``=8ball <Your Question>``**`)
+            .setDescription(`The 8ball responds to <@!${message.author.id}> with **Please use the proper syntax: \`\`=8ball <Your Question>\`\`**`)
 
         message.channel.send(exampleEmbed);
     }
