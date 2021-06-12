@@ -27,7 +27,7 @@ bot.on('ready', () => {
     })
 });
 
-//help command
+//help command 
 bot.on('message', async message => {
     if (message.content === "=help") {
         const exampleEmbed = new Discord.MessageEmbed()
