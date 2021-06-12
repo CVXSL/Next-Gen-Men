@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 1.7.12", {
+    bot.user.setActivity("Update 1.7.13", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -544,7 +544,7 @@ bot.on('message', async message => {
         let outcomesIndex = Math.round(Math.random() * outcomes.length);
         const exampleEmbed = new Discord.MessageEmbed()
 	    .setColor()
-            .setAuthor('Coin Flip', '')
+            .setTitle('Coin Flip')
             .setDescription(`<@${message.author.id}> rolled heads or tails and **${(outcomes[outcomesIndex])}** came out!`)
 	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
 
