@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 1.7.1", {
+    bot.user.setActivity("Update 1.7.2", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -191,14 +191,9 @@ bot.on('messageReactionAdd', async (reaction, user) => {
     }
 });
 
-//Member join test
-bot.on('guildMemberAdd', member => {
-   member.send("Welcome to the server!");
-});
-
 //Member Joined
 bot.on('guildMemberAdd', async member => {
-    if (!member.guild.id === '840284368425582663') return;
+    if (!member.guild.id === '720659736990842880') return;
     if (member.user.bot) return member.roles.add('797211417031213116');
 	//Normal Mode Part 1
     member.send("Welcome to the **NGM Boys Club**!\nI am Next Gen Men (the bot), the server's very own custom discord bot. If you have any questions, please DM me and I will forward your message to our team. *(Also don't forget to grab roles in <#764153697566720051> when you get verified!)*");
@@ -225,7 +220,7 @@ bot.on('guildMemberAdd', async member => {
 
 //Member Left
 bot.on('guildMemberRemove', async member => {
-    if (!member.guild.id === '840284368425582663') return;
+    if (!member.guild.id === '720659736990842880') return;
     const embed = new Discord.MessageEmbed()
     const roles = member.roles.cache.filter(role => role.id !== member.guild.id).map(role => role.toString())
 
