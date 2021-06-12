@@ -134,7 +134,7 @@ bot.on('message', async message => {
         const embed = new Discord.MessageEmbed()
         const guild = bot.guilds.cache.get('763565098978770954');
 
-        embed.setColor('ff55b2');
+        embed.setColor('');
         embed.setTitle(`${message.author.tag} sent us a message!`);
 
         const attachment = message.attachments.first();
