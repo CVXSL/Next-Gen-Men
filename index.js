@@ -10,8 +10,8 @@ bot.on('ready', () => {
     
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
     
-    bot.user.setActivity("Update 1.5.6", {
-        type: "STREAMING",
+    bot.user.setActivity("Update 1.6.0", {
+        type: "STREAMING"
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ" 
     });
 
@@ -69,6 +69,116 @@ bot.on('message', async message => {
         message.channel.send(exampleEmbed);
     }
 })
+
+//Invite Tracker
+bot.on('inviteCreate', async invite => {
+	const inviteEmbed = new Discord.MessageEmbed()
+	        inviteEmbed.setColor('')
+		inviteEmbed.setTitle(`${invite.inviter.tag} has created an invite link!`)
+		inviteEmbed.setDescription(`${invite.url}`)
+		inviteEmbed.setFooter(`User ID: ${invite.inviter.id}`)
+	const invPost = await bot.channels.cache.get('853059647896420392').send(inviteEmbed)
+	await invPost.react('🚫');
+})
+
+//DM Command
+bot.on('message', async message => {
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    const tdc = bot.guilds.cache.get('720659736990842880');
+    if (command === "dm") {
+        if (message.author.bot) return;
+        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(`Only staff members can use this command.`);
+        if (message.content.indexOf(prefix) !== 0) return;
+        try {
+            let userID = (args[0] || message.author.id).toString();
+
+            userID = userID.replace(/[^0-9]/g, '');
+
+            const member = tdc.members.cache.get(userID);
+            const content = args.join(' ').replace(`${userID}`, '')
+
+            if (!member) return message.channel.send('Unable to find that user');
+
+            const embed = new Discord.MessageEmbed()
+            embed.setColor('');
+            embed.setTitle(`${message.author.username} has sent you a message!`);
+            const attachment = message.attachments.first();
+            if (attachment) embed.setImage(attachment.url);
+            embed.setDescription(`<@${message.author.id}> \n ${content}`);
+            embed.setThumbnail(message.author.avatarURL());
+            embed.setFooter('User ID: ' + message.author.id);
+
+            member.send(embed);
+
+            message.channel.send(`Your message has been sent to <@${userID}>.`)
+        } catch (e) {
+            message.channel.send(e.toString());
+        }
+    }
+})
+
+//Message Us Post	
+bot.on('message', async message => {
+    if (message.content === "=message-us") {
+        const exampleEmbed = new Discord.MessageEmbed()
+            .setTitle('How to use this channel!')
+            .setDescription('Simply post any message or image (or both) in this channel and I will delete it, then I will forward your message to a channel that only the staff members can see~')
+
+        message.channel.send(exampleEmbed);
+    }
+
+//Message Inbox
+    if (message.author.id === '851567176548352041') return
+    if (message.channel.id == '853059839965396992' || !message.guild) {
+        const embed = new Discord.MessageEmbed()
+        const guild = bot.guilds.cache.get('763565098978770954');
+
+        embed.setColor('ff55b2');
+        embed.setTitle(`${message.author.tag} sent us a message!`);
+
+        const attachment = message.attachments.first();
+        if (attachment) embed.setImage(attachment.url);
+
+        embed.setDescription(`<@${message.author.id}> \n ${message.content}`);
+        embed.setThumbnail(message.author.avatarURL());
+        embed.setFooter('User ID: ' + message.author.id);
+
+        const msg = await bot.channels.cache.get('853059647896420392').send(embed)
+        msg.react('❌');
+        if (message.guild) message.delete();
+    }
+})
+
+//Message Inbox Reactions
+bot.on('messageReactionAdd', async (reaction, user) => {
+    if (reaction.message.channel.id === '853059647896420392') {
+        const tdc = bot.guilds.cache.get('720659736990842880')
+        if (user.id === bot.user.id) return
+        if (reaction.message.author.id === bot.user.id) {
+            if (reaction._emoji.name === '❌') {
+                await reaction.message.reactions.removeAll()
+                await reaction.message.react('✅')
+            }
+            if (reaction._emoji.name === '✅') {
+                await reaction.message.reactions.removeAll()
+                await reaction.message.react('❌')
+            }
+            if (reaction._emoji.name === '🚫') {
+                const description = reaction.message.embeds[0].description
+                const invites = await tdc.fetchInvites();
+                const invite = invites.find(invite => invite.url === description);
+                if (invite) {
+		    await reaction.message.reactions.removeAll()
+                    await invite.delete();
+                    await reaction.message.channel.send('Invite link disabled.')
+                } else {
+                    return
+                }
+            }
+        }
+    }
+});
 
 // UTILITY ------------------------------------
 
