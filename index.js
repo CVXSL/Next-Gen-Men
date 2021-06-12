@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 2.0.2", {
+    bot.user.setActivity("Update 2.0.3", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -561,7 +561,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setTitle('Cards ~~Against~~ For Masculinity')
 	    .setDescription(`<@!${message.author.id}> has drawn a card!`)
-            .setImage((outcomes[outcomesIndex]))
+            .setImage(`${(outcomes[outcomesIndex])}`)
 	    .setFooter('Find the physical copy here: https://www.nextgenmen.ca/cards')
 
         message.channel.send(exampleEmbed);
