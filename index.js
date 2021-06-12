@@ -191,6 +191,11 @@ bot.on('messageReactionAdd', async (reaction, user) => {
     }
 });
 
+//Member join test
+bot.on('guildMemberAdd', member => {
+   member.send("Welcome to the server!");
+});
+
 //Member Joined
 bot.on('guildMemberAdd', async member => {
     if (!member.guild.id === '720659736990842880') return;
