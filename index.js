@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 1.7.2", {
+    bot.user.setActivity("Update 1.7.3", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -182,7 +182,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
                 if (invite) {
 		    await reaction.message.reactions.removeAll()
                     await invite.delete();
-                    await reaction.message.channel.send('Invite link disabled.')
+                    await reaction.message.channel.send(`The invite link \`\`(${invite.url})\`\` has been disabled.`)
                 } else {
                     return
                 }
