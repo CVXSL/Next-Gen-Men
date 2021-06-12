@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 1.7.13", {
+    bot.user.setActivity("Update 1.7.14", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -373,7 +373,7 @@ bot.on("message", async (message) => {
 bot.on('message', async message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/g);
     const command = args.shift().toLowerCase();
-    const tdc = bot.guilds.cache.get('840284368425582663');
+    const tdc = bot.guilds.cache.get('720659736990842880');
     if (command === "love") {
         message.delete().catch(O_o => { });
         if (message.author.bot) return;
@@ -397,7 +397,7 @@ bot.on('message', async message => {
 
             member.send(embed);
 
-            message.channel.send(`Sorry for the two pings <@${userID}>, check your DMs, someone has sent you an anonymous message!`)
+            message.channel.send(`Sorry for the two pings <@!${userID}>, check your DMs, someone has sent you an anonymous message!`)
         } catch (e) {
             message.channel.send(e.toString());
         }
