@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 2.0.3", {
+    bot.user.setActivity("Update 2.0.4", {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -214,7 +214,7 @@ bot.on('guildMemberAdd', async member => {
     embed.setFooter('User ID:' + member.id);
 
 	//Normal Mode part 2
-    await bot.channels.cache.get('811344556205277214').send(`**🚀 Welcome to the club, <@${member.id}>!\nThere are a few steps before you can get added to the rest of the server. Tag \`\`@Facilitators\`\` if you have any questions or would like to find out more about the community.\n> 1. Start by filling out the application form: http://nextgenmen.ca/club/apply\n> 2. After we’ve received it, one of the facilitators will ping you to verify your identity on the voice channel\n> 3. Once you’ve been verified, you’ll get added to the rest of the server`);
+    await bot.channels.cache.get('811344556205277214').send(`**🚀 Welcome to the club, <@${member.id}>!**\nThere are a few steps before you can get added to the rest of the server. Tag \`\`@Facilitators\`\` if you have any questions or would like to find out more about the community.\n> 1. Start by filling out the application form: http://nextgenmen.ca/club/apply\n> 2. After we’ve received it, one of the facilitators will ping you to verify your identity on the voice channel\n> 3. Once you’ve been verified, you’ll get added to the rest of the server`);
     const msg = await bot.channels.cache.get('789257779076268102').send(embed);
 });
 
