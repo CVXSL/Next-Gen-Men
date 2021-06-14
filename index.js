@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity(`Update 2.0.5`, {
+    bot.user.setActivity(`Update 2.0.6`, {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -208,7 +208,7 @@ bot.on('guildMemberAdd', async member => {
     const embed = new Discord.MessageEmbed()
     const target = member.user
     embed.setColor('');
-    embed.setDescription(`**Member Joined:**\n<@${member.id}>\n\n**Member #:**\n${bot.users.cache.size}**\n\n**Account Created**:\n` + member.user.createdAt);
+    embed.setDescription(`\n**Member Joined:**\n<@${member.id}>\n\n**Member #:**\n${bot.users.cache.size}\n\n**Account Created**:\n` + member.user.createdAt);
     embed.setAuthor(`${member.user.tag} joined the server`, member.user.avatarURL);
     embed.setThumbnail(member.user.avatarURL());
     embed.setFooter('User ID:' + member.id);
@@ -225,7 +225,7 @@ bot.on('guildMemberRemove', async member => {
     const roles = member.roles.cache.filter(role => role.id !== member.guild.id).map(role => role.toString())
 
     embed.setColor('');
-    embed.setDescription(`Member Left: <@${member.id}>\n __**Roles:**__ \n${roles.join(`\n`)}`);
+    embed.setDescription(`**Member Left:**\n<@${member.id}>\n\n**Roles:**\n${roles.join(`\n`)}\n\n**Member Joined**\n` + member.user.joinedAt);
     embed.setAuthor(`${member.user.tag} left the server`, member.user.avatarURL);
     embed.setThumbnail(member.user.avatarURL());
     embed.setFooter('User ID:' + member.id);
