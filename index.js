@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity(`Update 2.0.6`, {
+    bot.user.setActivity(`Update 2.0.7`, {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -196,7 +196,7 @@ bot.on('guildMemberAdd', async member => {
     if (!member.guild.id === '720659736990842880') return;
     if (member.user.bot) return member.roles.add('797211417031213116');
 	//Normal Mode Part 1
-    member.send("Welcome to the **NGM Boys Club**!\nI am Next Gen Men (the bot), the server's very own custom discord bot. If you have any questions, please DM me and I will forward your message to our team. *(Also don't forget to grab roles in <#764153697566720051> when you get verified!)*");
+    member.send("**🚀 Welcome to the club, <@${member.id}>!**\nThere are a few steps before you can get added to the rest of the server. Tag \`\`@Facilitators\`\` if you have any questions or would like to find out more about the community.\n> 1. Start by filling out the application form: http://nextgenmen.ca/club/apply\n> 2. After we’ve received it, one of the facilitators will ping you to verify your identity on the voice channel\n> 3. Once you’ve been verified, you’ll get added to the rest of the server");
     member.roles.add('789252052516864081')
     member.roles.add('811345066681172038')
    
@@ -225,7 +225,7 @@ bot.on('guildMemberRemove', async member => {
     const roles = member.roles.cache.filter(role => role.id !== member.guild.id).map(role => role.toString())
 
     embed.setColor('');
-    embed.setDescription(`**Member Left:**\n<@${member.id}>\n\n**Roles:**\n${roles.join(`\n`)}\n\n**Member Joined**\n` + member.user.joinedAt);
+    embed.setDescription(`**Member Left:**\n<@${member.id}>\n\n**Roles:**\n${roles.join(`\n`)}`);
     embed.setAuthor(`${member.user.tag} left the server`, member.user.avatarURL);
     embed.setThumbnail(member.user.avatarURL());
     embed.setFooter('User ID:' + member.id);
