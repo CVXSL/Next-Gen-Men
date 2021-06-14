@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity("Update 2.0.4", {
+    bot.user.setActivity(`Update 2.0.5`, {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -208,7 +208,7 @@ bot.on('guildMemberAdd', async member => {
     const embed = new Discord.MessageEmbed()
     const target = member.user
     embed.setColor('');
-    embed.setDescription(`Member Joined: <@${member.id}>\n __**Account Created**__: ` + member.user.createdAt);
+    embed.setDescription(`**Member Joined:**\n<@${member.id}>\n\n**Member #:**\n${bot.users.cache.size}**\n\n**Account Created**:\n` + member.user.createdAt);
     embed.setAuthor(`${member.user.tag} joined the server`, member.user.avatarURL);
     embed.setThumbnail(member.user.avatarURL());
     embed.setFooter('User ID:' + member.id);
