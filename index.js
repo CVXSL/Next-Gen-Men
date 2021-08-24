@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity(`Update 2.0.9`, {
+    bot.user.setActivity(`Update 2.0.10`, {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -72,7 +72,7 @@ bot.on('message', async message => {
         const exampleEmbed = new Discord.MessageEmbed()
             .setColor('')
             .setTitle('🎲 Help Fun 🎲')
-            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n\`\`=love <@user>\`\` | To send an anonymous message to the pinged user.\n\`\`"gay"\`\` | Say the word "gay" in any of your sentances to see!\n\`\`=8ball <question>\`\` | Ask the 8ball a question!\n\`\`=dice\`\` | Check all of the dice types!\n\`\`=d<number>\`\` | To roll a dice, but make sure to use the \`\`=dice\`\` command to check the list of dice types!\n\`\`=coinflip\`\` | To flip a coin for heads or tails!`)
+            .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n\`\`=love <@user>\`\` | To send an anonymous message to the pinged user.\n\`\`"gay"\`\` | Say the word "gay" in any of your sentances to see!\n\`\`=8ball <question>\`\` | Ask the 8ball a question!\n\`\`=dice\`\` | Check all of the dice types!\n\`\`=d<number>\`\` | To roll a dice, but make sure to use the \`\`=dice\`\` command to check the list of dice types!\n\`\`=flip\`\` | To flip a coin for heads or tails!`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
