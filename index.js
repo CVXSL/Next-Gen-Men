@@ -10,7 +10,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity(`Update 2.0.8`, {
+    bot.user.setActivity(`Update 2.0.9`, {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -88,7 +88,7 @@ bot.on('inviteCreate', async invite => {
 		inviteEmbed.setTitle(`${invite.inviter.tag} has created an invite link!`)
 		inviteEmbed.setDescription(`${invite.url}`)
 		inviteEmbed.setFooter(`User ID: ${invite.inviter.id}`)
-	const invPost = await bot.channels.cache.get('853059647896420392').send(inviteEmbed)
+	const invPost = await bot.channels.cache.get('879814840863035432').send(inviteEmbed)
 	await invPost.react('🚫');
 })
 
@@ -164,6 +164,36 @@ bot.on('message', async message => {
 //Message Inbox Reactions
 bot.on('messageReactionAdd', async (reaction, user) => {
     if (reaction.message.channel.id === '853059647896420392') {
+        const tdc = bot.guilds.cache.get('720659736990842880')
+        if (user.id === bot.user.id) return
+        if (reaction.message.author.id === bot.user.id) {
+            if (reaction._emoji.name === '❌') {
+                await reaction.message.reactions.removeAll()
+                await reaction.message.react('✅')
+            }
+            if (reaction._emoji.name === '✅') {
+                await reaction.message.reactions.removeAll()
+                await reaction.message.react('❌')
+            }
+            if (reaction._emoji.name === '🚫') {
+                const description = reaction.message.embeds[0].description
+                const invites = await tdc.fetchInvites();
+                const invite = invites.find(invite => invite.url === description);
+                if (invite) {
+		    await reaction.message.reactions.removeAll()
+                    await invite.delete();
+                    await reaction.message.channel.send(`The invite link \`\`(${invite.url})\`\` has been disabled.`)
+                } else {
+                    return
+                }
+            }
+        }
+    }
+});
+
+//link logs Reactions
+bot.on('messageReactionAdd', async (reaction, user) => {
+    if (reaction.message.channel.id === '879814840863035432') {
         const tdc = bot.guilds.cache.get('720659736990842880')
         if (user.id === bot.user.id) return
         if (reaction.message.author.id === bot.user.id) {
