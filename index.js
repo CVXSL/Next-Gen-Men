@@ -606,6 +606,7 @@ bot.on('message', async message => {
     const command = args.shift().toLowerCase();
     const tdc = bot.guilds.cache.get('720659736990842880');	
     if (command === "welcome") {
+	message.delete().catch(O_o => { });
         if (message.author.bot) return;
         if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(`Only staff members can use this command.`);
         if (message.content.indexOf(prefix) !== 0) return;
