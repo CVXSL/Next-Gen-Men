@@ -598,6 +598,48 @@ bot.on('message', async message => {
       	}
     });
 
+// UPDATE 3.0
+
+// Welcome Command
+bot.on('message', async message => {
+    const args = message.content.slice(prefix.length).trim().split(/ +/g);
+    const command = args.shift().toLowerCase();
+    const tdc = bot.guilds.cache.get('720659736990842880');	
+    if (command === "welcome") {
+        if (message.author.bot) return;
+        if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(`Only staff members can use this command.`);
+        if (message.content.indexOf(prefix) !== 0) return;
+        try {
+            let userID = (args[0] || message.author.id).toString();
+
+            userID = userID.replace(/[^0-9]/g, '');
+
+            const member = tdc.members.cache.get(userID);
+            const content = args.join(' ').replace(`${userID}`, '')
+	    
+            let outcomes = [`Welcome <@${userID}>! 🙂`, `💕 We’re glad to have you here, <@${userID}>!`, `<@${userID}> is here, let’s party! 🥳`, `At last, a ray of sunshine in my virtual bot existence. ☀️ Welcome, <@${userID}>!`, `🤯 Someone ask for an autograph, <@${userID}> is here!`];
+            let outcomesIndex = Math.round(Math.random() * outcomes.length);
+
+            if (!member) return message.channel.send('Unable to find that user');
+
+            const embed = new Discord.MessageEmbed()
+            embed.setColor();
+            embed.setTitle(`${message.author.username} has sent you a message!`);
+            const attachment = message.attachments.first();
+            if (attachment) embed.setImage(attachment.url);
+            embed.setDescription(`<@${message.author.id}> \n ${content}`);
+            embed.setThumbnail(message.author.avatarURL());
+            embed.setFooter('User ID: ' + message.author.id);
+
+
+            message.channel.send(`${(outcomes[outcomesIndex])}`)
+        } catch (e) {
+            message.channel.send(e.toString());
+        }
+    }
+})
+
+
 // THIS IS THE bot.login
 
 bot.login(process.env.token);
