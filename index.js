@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 const prefix = "="
 
-const update = "2.0.12'
+const update = "2.0.13"
 
 // THIS IS THE STATUS
 
