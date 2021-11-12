@@ -3,6 +3,8 @@ const bot = new Discord.Client();
 
 const prefix = "="
 
+const update = "2.0.12'
+
 // THIS IS THE STATUS
 
 bot.on('ready', () => {
@@ -10,7 +12,7 @@ bot.on('ready', () => {
 	
     bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
 	
-    bot.user.setActivity(`Update 2.0.11`, {
+    bot.user.setActivity(`Update ${update}`, {
         type: "STREAMING",
         url: "https://www.youtube.com/watch?v=dQw4w9WgXcQ"
     });
@@ -34,6 +36,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('Help')
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n**🛠️ Moderation**\n\`\`=help mod\`\`\n\n**⚙️ Utility**\n\`\`=help util\`\`\n\n**🎲 Fun**\n\`\`=help fun\`\``)
+            .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed); 
@@ -47,6 +50,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('🛠️ Help Moderation 🛠️')
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\nComing Soon!`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -60,6 +64,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('⚙️ Help Utility ⚙️')
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n\`\`=ping\`\` | To check the ping of the bot.`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -73,6 +78,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('🎲 Help Fun 🎲')
             .setDescription(`Thanks for asking for help <@!${message.author.id}>!\n\n\`\`=love <@user>\`\` | To send an anonymous message to the pinged user.\n\`\`"gay"\`\` | Say the word "gay" in any of your sentances to see!\n\`\`=8ball <question>\`\` | Ask the 8ball a question!\n\`\`=dice\`\` | Check all of the dice types!\n\`\`=d<number>\`\` | To roll a dice, but make sure to use the \`\`=dice\`\` command to check the list of dice types!\n\`\`=flip\`\` | To flip a coin for heads or tails!`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -87,7 +93,7 @@ bot.on('inviteCreate', async invite => {
 	        inviteEmbed.setColor('')
 		inviteEmbed.setTitle(`${invite.inviter.tag} has created an invite link!`)
 		inviteEmbed.setDescription(`${invite.url}`)
-		inviteEmbed.setFooter(`User ID: ${invite.inviter.id}`)
+		inviteEmbed.setFooter(`Update: ${update} - User ID: ${invite.inviter.id}`)
 	const invPost = await bot.channels.cache.get('879814840863035432').send(inviteEmbed)
 	await invPost.react('🚫');
 })
@@ -118,7 +124,7 @@ bot.on('message', async message => {
             if (attachment) embed.setImage(attachment.url);
             embed.setDescription(`<@${message.author.id}> \n ${content}`);
             embed.setThumbnail(message.author.avatarURL());
-            embed.setFooter('User ID: ' + message.author.id);
+            embed.setFooter(`Update: ${update} - User ID: ` + message.author.id);
 
             member.send(embed);
 
@@ -153,7 +159,7 @@ bot.on('message', async message => {
 
         embed.setDescription(`<@${message.author.id}> \n ${message.content}`);
         embed.setThumbnail(message.author.avatarURL());
-        embed.setFooter('User ID: ' + message.author.id);
+        embed.setFooter(`Update: ${update} User ID: ` + message.author.id);
 
         const msg = await bot.channels.cache.get('853059647896420392').send(embed)
         msg.react('❌');
@@ -241,7 +247,7 @@ bot.on('guildMemberAdd', async member => {
     embed.setDescription(`\n**Member Joined:**\n<@${member.id}>\n\n**Member #:**\n${bot.users.cache.size}\n\n**Account Created**:\n` + member.user.createdAt);
     embed.setAuthor(`${member.user.tag} joined the server`, member.user.avatarURL);
     embed.setThumbnail(member.user.avatarURL());
-    embed.setFooter('User ID:' + member.id);
+    embed.setFooter(`Update: ${update} - User ID:` + member.id);
 
 	//Normal Mode part 2
     await bot.channels.cache.get('811344556205277214').send(`**🚀 Welcome to the club, <@${member.id}>!**\nThere are a few steps before you can get added to the rest of the server. Tag \`\`@Facilitators\`\` if you have any questions or would like to find out more about the community.\n> 1. Start by filling out the application form: http://nextgenmen.ca/club/apply\n> 2. After we’ve received it, one of the facilitators will ping you to verify your identity on the voice channel\n> 3. Once you’ve been verified, you’ll get added to the rest of the server`);
@@ -258,7 +264,7 @@ bot.on('guildMemberRemove', async member => {
     embed.setDescription(`**Member Left:**\n<@${member.id}>\n\n**Roles:**\n${roles.join(`\n`)}`);
     embed.setAuthor(`${member.user.tag} left the server`, member.user.avatarURL);
     embed.setThumbnail(member.user.avatarURL());
-    embed.setFooter('User ID:' + member.id);
+    embed.setFooter(`Update: ${update} User ID: ` + member.id);
 
     const msg = await bot.channels.cache.get('789257779076268102').send(embed)
 });
@@ -272,6 +278,7 @@ bot.on('message', async message => {
 		.setColor('')
 		.setTitle('PONG!')
 		.setDescription(`<@${message.author.id}> has pinged the server!\n**⏳ Your ping is:** ${Math.round(bot.ws.ping)}ms`)
+		.setFooter(`Update: ${update}`)
 		.setTimestamp()
 			
 		message.channel.send(exampleEmbed);
@@ -286,6 +293,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('🚨 Seek Help 🚨')
             .setDescription(`Thanks for seeking help <@!${message.author.id}>!\n\n**🗣️ Reach out**\nRemember, there are many people who you can turn to for support including friends, family, and others that you trust. Reaching out for support is brave. You've got this. <@!400460072649621524>’s DMs are also always 100% open. 📱\n\n**☎️ Contact a helpline**\nThese helplines offer regular phone, text, email and live chat services for young people across Canada that are confidential, anonymous, non-judgemental and supportive. You can also call 211 if you want to know about specific resources in your area.\n\nHere are some of the help lines that we recommend if you need help:\n\`\`=sh khp\`\` | Kids Help Phone \n\`\`=sh yl\`\` | YouthLine\n\`\`=sh tll\`\` | Trands Lifeline\n\`\`=sh byh\`\` | Black Youth Helpline\n\`\`=sh hfw\`\` | Home for Wellness\n\`\`=sh nh\`\` | Naseeha\n\`\`=sh g2t\`\` | Good2Talk`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -299,6 +307,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('Kids Help Phone')
             .setDescription(`Thanks for seeking help <@!${message.author.id}>!\n\nKids Help Phone\n> Available 24/7\n> https://kidshelpphone.ca/`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -312,6 +321,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('YouthLine')
             .setDescription(`Thanks for seeking help <@!${message.author.id}>!\n\nYouthLine\n> Non-crisis support for LGBTQ+ youth\n> https://www.youthline.ca/`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -325,6 +335,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('Trans Lifeline')
             .setDescription(`Thanks for seeking help <@!${message.author.id}>!\n\nTrans Lifeline\n> Crisis response line for trans people\n> https://www.translifeline.org/`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -338,6 +349,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('Black Youth Helpline')
             .setDescription(`Thanks for seeking help <@!${message.author.id}>!\n\nBlack Youth Helpline\n> Phone helpline for Black youth\n> https://blackyouth.ca/`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -351,6 +363,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('Hope for Wellness')
             .setDescription(`Thanks for seeking help <@!${message.author.id}>!\n\nHope for Wellness\n> Counselling for Indigenous youth\n> https://www.hopeforwellness.ca/`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -364,6 +377,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('Naseeha')
             .setDescription(`Thanks for seeking help <@!${message.author.id}>!\n\nNaseeha\n> Confidential support for young Muslims\n> https://naseeha.org/`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -377,6 +391,7 @@ bot.on('message', async message => {
             .setColor('')
             .setTitle('Good2Talk')
             .setDescription(`Thanks for seeking help <@!${message.author.id}>!\n\nGood2Talk\n> Support for post-secondary students\n> https://good2talk.ca/`)
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -423,7 +438,7 @@ bot.on('message', async message => {
             embed.setColor('');
             embed.setTitle(`You have received an anonymous message!`);
             embed.setDescription(`You are loved!`);
-//            embed.setFooter('You can DM this bot if you have any questions, comments or concerns. I will send your message to NGM staff.');
+//	    embed.setFooter(`Update: ${update}`)
 
             member.send(embed);
 
@@ -445,6 +460,7 @@ bot.on('message', async message => {
 	        .setColor('')
             .setAuthor(`The 8Ball Responds!`)
             .setDescription(`The 8ball responds to <@!${message.author.id}> with **${(outcomes[outcomesIndex])}**`)
+	    .setFooter(`Update: ${update}`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -458,6 +474,7 @@ bot.on('message', async message => {
 	    .setColor('')
             .setTitle(`The 8Ball Responds!`)
             .setDescription(`The 8ball responds to <@!${message.author.id}> with **Please use the proper syntax: \`\`=8ball <Your Question>\`\`**`)
+	    .setFooter(`Update: ${update}`)
 
         message.channel.send(exampleEmbed);
     }
@@ -471,6 +488,7 @@ bot.on('message', async message => {
             .setColor()
             .setTitle('Dice Types')
             .setDescription('**Here is a list of all dice types:**\nD4\nD6\nD8\nD10\nD12\nD20')
+	    .setFooter(`Update: ${update}`)
             .setTimestamp()
 
         message.channel.send(exampleEmbed);
@@ -486,7 +504,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D4', 'https://www.google.com/logos/fnbx/polyhedral_dice/d4_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D4 and a **${(outcomes[outcomesIndex])}** came out!`)
-	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
+	    .setFooter(`Update: ${update} - If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -501,7 +519,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D6', 'https://www.google.com/logos/fnbx/polyhedral_dice/d6_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D6 and a **${(outcomes[outcomesIndex])}** came out!`)
-	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
+	    .setFooter(`Update: ${update} - If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -516,7 +534,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D8', 'https://www.google.com/logos/fnbx/polyhedral_dice/d8_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D8 and a **${(outcomes[outcomesIndex])}** came out!`)
-	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
+	    .setFooter(`Update: ${update} - If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -531,7 +549,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D10', 'https://www.google.com/logos/fnbx/polyhedral_dice/d10_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D10 and a **${(outcomes[outcomesIndex])}** came out!`)
-	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
+	    .setFooter(`Update: ${update} - If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -546,7 +564,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D12', 'https://www.google.com/logos/fnbx/polyhedral_dice/d12_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D12 and a **${(outcomes[outcomesIndex])}** came out!`)
-	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
+	    .setFooter(`Update: ${update} - If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -561,7 +579,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setAuthor('D20', 'https://www.google.com/logos/fnbx/polyhedral_dice/d20_hires.png')
             .setDescription(`<@${message.author.id}> rolled a D20 and a **${(outcomes[outcomesIndex])}** came out!`)
-	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
+	    .setFooter(`Update: ${update} - If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -576,7 +594,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setTitle('Coin Flip')
             .setDescription(`<@${message.author.id}> flipped heads or tails and **${(outcomes[outcomesIndex])}** came out!`)
-	    .setFooter('If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD')
+	    .setFooter(`Update: ${update} - If the output is "undefined", that means that you have to re-roll, or in other words, nothing came out! xD`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -592,7 +610,7 @@ bot.on('message', async message => {
             .setTitle('Cards ~~Against~~ For Masculinity')
 	    .setDescription(`<@!${message.author.id}> has drawn a card!`)
             .setImage(`${(outcomes[outcomesIndex])}`)
-	    .setFooter('Find the physical copy here: https://www.nextgenmen.ca/cards')
+	    .setFooter(`Update: ${update} - Find the physical copy here: https://www.nextgenmen.ca/cards`)
 
         message.channel.send(exampleEmbed);
       	}
@@ -630,7 +648,7 @@ bot.on('message', async message => {
             if (attachment) embed.setImage(attachment.url);
             embed.setDescription(`<@${message.author.id}> \n ${content}`);
             embed.setThumbnail(message.author.avatarURL());
-            embed.setFooter('User ID: ' + message.author.id);
+            embed.setFooter(`Update: ${update} - User ID: ` + message.author.id);
 
 
             message.channel.send(`${(outcomes[outcomesIndex])}`)
