@@ -609,7 +609,7 @@ bot.on('message', async message => {
 	    .setColor()
             .setTitle('Cards ~~Against~~ For Masculinity')
 	    .setDescription(`<@!${message.author.id}> has drawn a card!`)
-            .setImage(`${(outcomes[outcomesIndex])}`)
+            .setImage((outcomes[outcomesIndex]))
 	    .setFooter(`Update: ${update} - Find the physical copy here: https://www.nextgenmen.ca/cards`)
 
         message.channel.send(exampleEmbed);
