@@ -3,7 +3,7 @@ const bot = new Discord.Client();
 
 const prefix = "="
 
-const update = "2.0.14"
+const update = "2.0.15"
 
 // THIS IS THE STATUS
 
@@ -232,7 +232,7 @@ bot.on('guildMemberAdd', async member => {
     if (!member.guild.id === '720659736990842880') return;
     if (member.user.bot) return member.roles.add('797211417031213116');
 	//Normal Mode Part 1
-    member.send(`**🚀 Welcome to the club, <@${member.id}>!**\nThere are a few steps before you can get added to the rest of the server. Tag \`\`@Facilitators\`\` if you have any questions or would like to find out more about the community.\n> 1. Start by filling out the application form: http://nextgenmen.ca/club/apply\n> 2. After we’ve received it, one of the facilitators will ping you to verify your identity on the voice channel\n> 3. Once you’ve been verified, you’ll get added to the rest of the server`);
+    member.send(`**🚀 Welcome to the club, <@${member.id}>!**\nBecause NGM Boys Club is run by a nonprofit organization, we need two things before we can add you to the rest of the server: a voice call to verify your age and emergency contact info for a parent/guardian.\n➡️ Type \`;apply\` to get started! Ping \`@Facilitators\` if you have any questions.`);
     member.roles.add('789252052516864081')
     member.roles.add('811345066681172038')
    
@@ -250,7 +250,7 @@ bot.on('guildMemberAdd', async member => {
     embed.setFooter(`Update: ${update} - User ID:` + member.id);
 
 	//Normal Mode part 2
-    await bot.channels.cache.get('811344556205277214').send(`**🚀 Welcome to the club, <@${member.id}>!**\nThere are a few steps before you can get added to the rest of the server. Tag \`\`@Facilitators\`\` if you have any questions or would like to find out more about the community.\n> 1. Start by filling out the application form: http://nextgenmen.ca/club/apply\n> 2. After we’ve received it, one of the facilitators will ping you to verify your identity on the voice channel\n> 3. Once you’ve been verified, you’ll get added to the rest of the server`);
+    await bot.channels.cache.get('811344556205277214').send(`**🚀 Welcome to the club, <@${member.id}>!**\nBecause NGM Boys Club is run by a nonprofit organization, we need two things before we can add you to the rest of the server: a voice call to verify your age and emergency contact info for a parent/guardian.\n➡️ Type \`;apply\` to get started! Ping \`@Facilitators\` if you have any questions.`);
     const msg = await bot.channels.cache.get('789257779076268102').send(embed);
 });
 
