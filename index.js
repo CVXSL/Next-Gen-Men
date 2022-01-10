@@ -10,7 +10,7 @@ const update = "2.0.15"
 bot.on('ready', () => {
     console.log(`Logged in as ${bot.user.tag} c:`);
 	
-    bot.channels.cache.get('851575942795100208').send(`No errors, I have restarted!`)
+    bot.channels.cache.get('853056067679027280').send(`**NGM**: \`I have restarted!\``)
 	
     bot.user.setActivity(`Update ${update}`, {
         type: "STREAMING",
