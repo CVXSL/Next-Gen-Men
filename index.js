@@ -197,6 +197,68 @@ bot.on('messageReactionAdd', async (reaction, user) => {
     }
 });
 
+//Event Ideas Post	
+bot.on('message', async message => {
+    if (message.content === "=message-us") {
+        const exampleEmbed = new Discord.MessageEmbed()
+            .setTitle('How to use this channel!')
+            .setDescription('Simply post any message or image (or both) in this channel and I will delete it, then I will forward your message to a channel that only the staff members can see~')
+
+        message.channel.send(exampleEmbed);
+    }
+
+//Event Message Inbox
+    if (message.author.id === '851567176548352041') return
+    if (message.channel.id == '1025505722689142806' || !message.guild) {
+        const embed = new Discord.MessageEmbed()
+        const guild = bot.guilds.cache.get('763565098978770954');
+
+        embed.setColor('');
+        embed.setTitle(`${message.author.tag} sent us a message!`);
+
+        const attachment = message.attachments.first();
+        if (attachment) embed.setImage(attachment.url);
+
+        embed.setDescription(`<@${message.author.id}> \n ${message.content}`);
+        embed.setThumbnail(message.author.avatarURL());
+        embed.setFooter(`Update: ${update} User ID: ` + message.author.id);
+
+        const msg = await bot.channels.cache.get('1025507285860110366').send(embed)
+        msg.react('❌');
+        if (message.guild) message.delete();
+    }
+})
+
+//Event Message Inbox Reactions
+bot.on('messageReactionAdd', async (reaction, user) => {
+    if (reaction.message.channel.id === '1025507285860110366') {
+        const tdc = bot.guilds.cache.get('720659736990842880')
+        if (user.id === bot.user.id) return
+        if (reaction.message.author.id === bot.user.id) {
+            if (reaction._emoji.name === '❌') {
+                await reaction.message.reactions.removeAll()
+                await reaction.message.react('✅')
+            }
+            if (reaction._emoji.name === '✅') {
+                await reaction.message.reactions.removeAll()
+                await reaction.message.react('❌')
+            }
+            if (reaction._emoji.name === '🚫') {
+                const description = reaction.message.embeds[0].description
+                const invites = await tdc.fetchInvites();
+                const invite = invites.find(invite => invite.url === description);
+                if (invite) {
+		    await reaction.message.reactions.removeAll()
+                    await invite.delete();
+                    await reaction.message.channel.send(`The invite link \`\`(${invite.url})\`\` has been disabled.`)
+                } else {
+                    return
+                }
+            }
+        }
+    }
+});
+
 //link logs Reactions
 bot.on('messageReactionAdd', async (reaction, user) => {
     if (reaction.message.channel.id === '879814840863035432') {
