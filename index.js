@@ -199,7 +199,7 @@ bot.on('messageReactionAdd', async (reaction, user) => {
 
 //Event Ideas Post	
 bot.on('message', async message => {
-    if (message.content === "=message-us") {
+    if (message.content === "=event-message-us") {
         const exampleEmbed = new Discord.MessageEmbed()
             .setTitle('How to use this channel!')
             .setDescription('Simply send your recommendation in this channel and I will delete it, then I will forward your message to a channel that only the event coordinators can see~')
