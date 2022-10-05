@@ -202,7 +202,7 @@ bot.on('message', async message => {
     if (message.content === "=message-us") {
         const exampleEmbed = new Discord.MessageEmbed()
             .setTitle('How to use this channel!')
-            .setDescription('Simply post any message or image (or both) in this channel and I will delete it, then I will forward your message to a channel that only the staff members can see~')
+            .setDescription('Simply send your recommendation in this channel and I will delete it, then I will forward your message to a channel that only the event coordinators can see~')
 
         message.channel.send(exampleEmbed);
     }
